@@ -1,10 +1,15 @@
 // src/components/Affichearticlestable.test.jsx
 
 import React from 'react';
+
 import '@testing-library/jest-dom'; // Import this to enable additional matchers
 
 import { render, screen } from '@testing-library/react';
 import Affichearticlestable from './Affichearticlestable';
+import { TextEncoder, TextDecoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
 
 const mockArticles = [
   {
