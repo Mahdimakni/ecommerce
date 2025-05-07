@@ -1,23 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
 
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
-import Listarticles from "./comppnments/articles/Listarticles"
-import Insertarticle from "./comppnments/articles/Insertarticle"
-import Editarticle from "./comppnments/articles/Editarticle"
-import Viewarticle from "./comppnments/articles/Viewarticle"
-import Listcategories from "./comppnments/categories/Listcategories"
-import Insertcategories from "./comppnments/categories/Insertcategories"
-import Editcategories from "./comppnments/categories/Editcategories"
-import Viewcategories from "./comppnments/categories/Viewcategories"
-import Listscategories from "./comppnments/scategories/Listscategories"
-import Editscategories from "./comppnments/scategories/Editscategories"
-import Insertscategories from "./comppnments/scategories/Insertscategories"
-import Viewscategories from "./comppnments/scategories/Viewscategories"
-import Menu from "./comppnments/Menu"
-import Listarticlescard from "./comppnments/Client/Listarticlescard"
+import Listarticles from "./components/articles/Listarticles";
+
+import Insertarticle from "./components/articles/Insertarticle";
+import Editarticle from "./components/articles/Editarticle";
+import Viewarticle from "./components/articles/Viewarticle";
+import Listcategories from "./components/categories/Listcategories";
+import Insertcategories from "./components/categories/Insertcategories";
+import Editcategories from "./components/categories/Editcategories";
+import Viewcategories from "./components/categories/Viewcategories";
+import Listscategories from "./components/scategories/Listscategories";
+import Editscategories from "./components/scategories/Editscategories";
+import Insertscategories from "./components/scategories/Insertscategories";
+import Viewscategories from "./components/scategories/Viewscategories";
+import Menu from "./components/Menu";
+import Listarticlescard from "./components/Client/Listarticlescard";
+import Cart from "./components/Client/Cart";
+import Listarticlestable from "./components/articles/Listarticlestable";
 
 import { CartProvider } from "use-shopping-cart";
-import Cart from "./comppnments/Client/Cart"
-import Listarticlestable from "./comppnments/articles/Listarticlestable"
+
 function App() {
 
   return (
@@ -26,7 +29,7 @@ function App() {
       <Router>
         <Menu/>
         <Routes>
-          <Route path="/articles" element={<Listarticles/>}/>
+          <Route path="/articles" element ={<Listarticles/>}/>
           <Route path="/articles/add" element ={<Insertarticle/>}/>
           <Route path="/articles/edit/:id" element ={<Editarticle/>}/>
           <Route path="/articles/view/:id" element ={<Viewarticle/>}/>

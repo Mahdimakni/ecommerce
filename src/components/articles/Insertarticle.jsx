@@ -4,6 +4,7 @@ import { Col , Row} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Insertarticle = () => {
   const [scategories,setScategories]=useState([])
  

@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useShoppingCart} from 'use-shopping-cart';
+import React from 'react';
+
 
 const Cards = ({article}) => {
   const { addItem } = useShoppingCart();
