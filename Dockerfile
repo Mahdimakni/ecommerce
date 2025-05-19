@@ -1,13 +1,13 @@
-# Utiliser une image de Node pour construire le frontend
+# Étape de build
 FROM node:18 as build
 
 WORKDIR /app
-COPY frontend/package.json frontend/package-lock.json ./
+COPY package.json package-lock.json ./
 RUN npm install
-COPY frontend/ ./
+COPY . .
 RUN npm run build
 
-# Utiliser une image Nginx pour servir l'app
+# Étape de production avec Nginx
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
