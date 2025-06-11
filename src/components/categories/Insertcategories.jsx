@@ -1,51 +1,63 @@
-
 import Form from 'react-bootstrap/Form';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid'; // Pour générer un ID unique
 
-import axios from 'axios';
-import {Link,useNavigate} from 'react-router-dom';
 const Insertcategories = () => {
-  const [categorie,setCategorie]=useState({})
-  const navigate=useNavigate()
+  const [categorie, setCategorie] = useState({
+    nomcategorie: '',
+    imagecategorie: '',
+  });
+  const navigate = useNavigate();
 
+  const handleSave = (e) => {
+    e.preventDefault();
 
+    // Récupérer les catégories existantes depuis localStorage
+    const existing = JSON.parse(localStorage.getItem("categories")) || [];
 
-  const handleSave=async(e)=>{
-    try{
-      e.preventDefault()
-      await axios.post("http://localhost:3001/api/categories",categorie).then(res=>{
+    // Créer une nouvelle catégorie avec un ID unique
+    const newCategorie = { ...categorie, _id: uuidv4() };
 
-        navigate("/categories")
-      })
+    // Ajouter la nouvelle catégorie à la liste et stocker
+    localStorage.setItem("categories", JSON.stringify([...existing, newCategorie]));
 
-    }catch(error){
-      console.log(error)
-    }
-  }
+    navigate("/categories");
+  };
+
   return (
     <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-      <center><h1>insertion categories</h1></center>
-       <Form>
-      <Form.Group className="mb-3" >
-        <Form.Label>Nom categorie</Form.Label>
-        <Form.Control type="text" placeholder="Nom categorie"
-        value={categorie.nomcategorie}
-        onChange={(e)=>setCategorie({...categorie,nomcategorie:e.target.value})} />
-      </Form.Group>
-      <Form.Group className="mb-3" >
-        <Form.Label>Image categorie</Form.Label>
-        <Form.Control type="text" placeholder="image categorie"
-        value={categorie.imagecategorie}
-        onChange={(e)=>setCategorie({...categorie,imagecategorie:e.target.value})} />
-      </Form.Group>
-      <div>
-        <button className='btn btn-success btn-sm' onClick={(e)=>handleSave(e)}><i class="fa-solid fa-floppy-disk"></i>Enregistrer</button>
-        <Link to="/categories"><button className='btn btn-danger btn-sm'><i class="fa-solid fa-ban"></i>cancel</button></Link>
-      </div>
-    </Form>
-      
+      <center><h1>Insertion catégorie</h1></center>
+      <Form>
+        <Form.Group className="mb-3">
+          <Form.Label>Nom catégorie</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Nom catégorie"
+            value={categorie.nomcategorie}
+            onChange={(e) => setCategorie({ ...categorie, nomcategorie: e.target.value })}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Image catégorie</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Image catégorie"
+            value={categorie.imagecategorie}
+            onChange={(e) => setCategorie({ ...categorie, imagecategorie: e.target.value })}
+          />
+        </Form.Group>
+        <div>
+          <button className='btn btn-success btn-sm' onClick={handleSave}>
+            <i className="fa-solid fa-floppy-disk"></i> Enregistrer
+          </button>
+          <Link to="/categories">
+            <button className='btn btn-danger btn-sm'><i className="fa-solid fa-ban"></i> Annuler</button>
+          </Link>
+        </div>
+      </Form>
     </div>
-  )
-}
+  );
+};
 
-export default Insertcategories
+export default Insertcategories;
