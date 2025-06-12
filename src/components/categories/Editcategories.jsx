@@ -36,8 +36,9 @@ const Editcategories = () => {
       <center><h1>Modifier une catégorie</h1></center>
       <Form>
         <Form.Group className="mb-3">
-          <Form.Label>Nom catégorie</Form.Label>
+          <Form.Label htmlFor="nomcategorie">Nom catégorie</Form.Label>
           <Form.Control
+            id="nomcategorie"
             type="text"
             placeholder="Nom catégorie"
             value={categorie.nomcategorie}
@@ -46,8 +47,9 @@ const Editcategories = () => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Image catégorie</Form.Label>
+          <Form.Label htmlFor="imagecategorie">Image catégorie</Form.Label>
           <Form.Control
+            id="imagecategorie"
             type="text"
             placeholder="Image catégorie"
             value={categorie.imagecategorie}
@@ -60,7 +62,7 @@ const Editcategories = () => {
             <i className="fa-solid fa-floppy-disk"></i> Modifier
           </button>
           <Link to="/categories">
-            <button className='btn btn-danger btn-sm ms-2'>
+            <button className='btn btn-danger btn-sm ms-2' type="button">
               <i className="fa-solid fa-ban"></i> Annuler
             </button>
           </Link>
