@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/categories/Editcategories.jsx</title>
+    <title>Code coverage report for components/categories/CategoryForm.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/categories</a> Editcategories.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/categories</a> CategoryForm.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -112,33 +112,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,51 +149,55 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import CategoryForm from './CategoryForm';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// src/components/categories/CategoryForm.jsx
+import React from 'react';
+import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 &nbsp;
-const Editcategories = () =&gt; {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [categorie, setCategorie] = useState({ nomcategorie: '', imagecategorie: '' });
-&nbsp;
-  useEffect(() =&gt; {
-    const storedCategories = JSON.parse(localStorage.getItem("categories")) || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-    const catToEdit = storedCategories.find(cat =&gt; cat._id === id);
-    if (catToEdit) {
-      setCategorie(catToEdit);
-    } else {
-      alert("Catégorie non trouvée !");
-      navigate("/categories");
-    }
-  }, [id, navigate]);
-&nbsp;
-  const handleUpdate = (e) =&gt; {
-    e.preventDefault();
-    const storedCategories = JSON.parse(localStorage.getItem("categories")) || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-    const updatedCategories = storedCategories.map(cat =&gt;
-      cat._id === id ? { ...cat, ...categorie } : <span class="branch-1 cbranch-no" title="branch not covered" >cat</span>
-    );
-    localStorage.setItem("categories", JSON.stringify(updatedCategories));
-    navigate("/categories");
-  };
-&nbsp;
+const CategoryForm = ({ categorie, setCategorie, onSubmit, buttonLabel, buttonClass }) =&gt; {
   return (
-    &lt;div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow"&gt;
-      &lt;center&gt;&lt;h1&gt;Modifier une catégorie&lt;/h1&gt;&lt;/center&gt;
-      &lt;CategoryForm
-        categorie={categorie}
-        setCategorie={setCategorie}
-        onSubmit={handleUpdate}
-        buttonLabel="Modifier"
-        buttonClass="btn-primary"
-      /&gt;
-    &lt;/div&gt;
+    &lt;Form&gt;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="nomcategorie"&gt;Nom catégorie&lt;/Form.Label&gt;
+        &lt;Form.Control
+          id="nomcategorie"
+          type="text"
+          placeholder="Nom catégorie"
+          value={categorie.nomcategorie}
+          onChange={(e) =&gt; setCategorie({ ...categorie, nomcategorie: e.target.value })}
+        /&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="imagecategorie"&gt;Image catégorie&lt;/Form.Label&gt;
+        &lt;Form.Control
+          id="imagecategorie"
+          type="text"
+          placeholder="Image catégorie"
+          value={categorie.imagecategorie}
+          onChange={(e) =&gt; setCategorie({ ...categorie, imagecategorie: e.target.value })}
+        /&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;div&gt;
+        &lt;button className={`btn ${buttonClass} btn-sm`} onClick={onSubmit}&gt;
+          &lt;i className="fa-solid fa-floppy-disk"&gt;&lt;/i&gt; {buttonLabel}
+        &lt;/button&gt;
+        &lt;Link to="/categories"&gt;
+          &lt;button className="btn btn-danger btn-sm ms-2" type="button"&gt;
+            &lt;i className="fa-solid fa-ban"&gt;&lt;/i&gt; Annuler
+          &lt;/button&gt;
+        &lt;/Link&gt;
+      &lt;/div&gt;
+    &lt;/Form&gt;
   );
 };
 &nbsp;
-export default Editcategories;
+export default CategoryForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
+import { useParams, useNavigate } from 'react-router-dom';
+import CategoryForm from './CategoryForm';
 
 const Editcategories = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [categorie, setCategorie] = useState({
-    nomcategorie: '',
-    imagecategorie: ''
-  });
+  const [categorie, setCategorie] = useState({ nomcategorie: '', imagecategorie: '' });
 
   useEffect(() => {
     const storedCategories = JSON.parse(localStorage.getItem("categories")) || [];
@@ -34,40 +31,13 @@ const Editcategories = () => {
   return (
     <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
       <center><h1>Modifier une catégorie</h1></center>
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="nomcategorie">Nom catégorie</Form.Label>
-          <Form.Control
-            id="nomcategorie"
-            type="text"
-            placeholder="Nom catégorie"
-            value={categorie.nomcategorie}
-            onChange={(e) => setCategorie({ ...categorie, nomcategorie: e.target.value })}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="imagecategorie">Image catégorie</Form.Label>
-          <Form.Control
-            id="imagecategorie"
-            type="text"
-            placeholder="Image catégorie"
-            value={categorie.imagecategorie}
-            onChange={(e) => setCategorie({ ...categorie, imagecategorie: e.target.value })}
-          />
-        </Form.Group>
-
-        <div>
-          <button className='btn btn-primary btn-sm' onClick={handleUpdate}>
-            <i className="fa-solid fa-floppy-disk"></i> Modifier
-          </button>
-          <Link to="/categories">
-            <button className='btn btn-danger btn-sm ms-2' type="button">
-              <i className="fa-solid fa-ban"></i> Annuler
-            </button>
-          </Link>
-        </div>
-      </Form>
+      <CategoryForm
+        categorie={categorie}
+        setCategorie={setCategorie}
+        onSubmit={handleUpdate}
+        buttonLabel="Modifier"
+        buttonClass="btn-primary"
+      />
     </div>
   );
 };
