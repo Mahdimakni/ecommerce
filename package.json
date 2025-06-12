@@ -42,7 +42,8 @@
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "use-shopping-cart": "^3.2.0"
+    "use-shopping-cart": "^3.2.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",

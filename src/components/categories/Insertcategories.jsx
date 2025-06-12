@@ -30,17 +30,20 @@ const Insertcategories = () => {
       <center><h1>Insertion catégorie</h1></center>
       <Form>
         <Form.Group className="mb-3">
-          <Form.Label>Nom catégorie</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Nom catégorie"
-            value={categorie.nomcategorie}
-            onChange={(e) => setCategorie({ ...categorie, nomcategorie: e.target.value })}
-          />
+            <Form.Label htmlFor="nomcategorie">Nom catégorie</Form.Label>
+            <Form.Control
+              id="nomcategorie"
+              type="text"
+              placeholder="Nom catégorie"
+              value={categorie.nomcategorie}
+              onChange={(e) => setCategorie({ ...categorie, nomcategorie: e.target.value })}
+            />
         </Form.Group>
+
         <Form.Group className="mb-3">
-          <Form.Label>Image catégorie</Form.Label>
+          <Form.Label htmlFor="imagecategorie">Image catégorie</Form.Label>
           <Form.Control
+            id="imagecategorie"
             type="text"
             placeholder="Image catégorie"
             value={categorie.imagecategorie}
